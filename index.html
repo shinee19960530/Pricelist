@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YuGlow — Price List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivory:     #f7f2eb;
+  --parchment: #ede5d8;
+  --sand:      #d9cfc2;
+  --taupe:     #b5a494;
+  --sienna:    #9a7b5e;
+  --espresso:  #3a2a1e;
+  --fog:       #faf8f4;
+  --muted:     #8a7a6e;
+  --accent:    #c09a7a;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ivory);
+  color: var(--espresso);
+  font-family: 'Noto Serif TC', serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+background: var(–espresso);
+padding: 64px 24px 56px;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+.hero::before {
+content: ‘’;
+position: absolute; inset: 0;
+background:
+radial-gradient(ellipse 70% 60% at 15% 80%, rgba(192,154,122,.22) 0%, transparent 65%),
+radial-gradient(ellipse 50% 50% at 85% 20%, rgba(181,164,148,.12) 0%, transparent 60%);
+pointer-events: none;
+}
+.hero-logo {
+position: relative;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(56px, 12vw, 100px);
+font-weight: 300;
+letter-spacing: .1em;
+color: var(–parchment);
+line-height: 1;
+animation: heroIn .9s ease both;
+}
+.hero-logo em { font-style: italic; color: var(–taupe); }
+.hero-sub {
+position: relative;
+margin-top: 12px;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(10px, 1.8vw, 13px);
+letter-spacing: .38em;
+text-transform: uppercase;
+color: var(–taupe);
+font-weight: 300;
+animation: heroIn .9s .15s ease both;
+}
+.hero-rule {
+position: relative;
+display: flex; align-items: center; justify-content: center; gap: 10px;
+margin: 28px auto 0;
+animation: heroIn .9s .25s ease both;
+}
+.hero-rule .line   { width: 48px; height: 1px; background: var(–taupe); opacity: .6; }
+.hero-rule .diamond{ width: 5px; height: 5px; background: var(–accent); transform: rotate(45deg); }
+@keyframes heroIn {
+from { opacity: 0; transform: translateY(18px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+
+/* TAB NAV */
+.tab-nav {
+position: sticky; top: 0; z-index: 200;
+background: var(–fog);
+display: flex;
+border-bottom: 1px solid var(–sand);
+box-shadow: 0 3px 24px rgba(58,42,30,.07);
+}
+.tab-btn {
+flex: 1; padding: 0; border: none; background: none; cursor: pointer;
+position: relative; transition: background .25s;
+}
+.tab-btn:hover { background: rgba(192,154,122,.06); }
+.tab-inner {
+display: flex; flex-direction: column; align-items: center;
+padding: 18px 16px 16px; gap: 4px;
+}
+.tab-en {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 10px; letter-spacing: .32em; text-transform: uppercase;
+color: var(–taupe); font-weight: 400; transition: color .25s;
+}
+.tab-zh {
+font-size: 13px; letter-spacing: .1em;
+color: var(–muted); font-weight: 300; transition: color .25s;
+}
+.tab-btn::after {
+content: ‘’; position: absolute; bottom: 0; left: 50%;
+transform: translateX(-50%) scaleX(0);
+width: 55%; height: 2px; background: var(–sienna);
+transition: transform .35s cubic-bezier(.4,0,.2,1);
+}
+.tab-btn.active .tab-en { color: var(–sienna); }
+.tab-btn.active .tab-zh { color: var(–espresso); font-weight: 400; }
+.tab-btn.active::after  { transform: translateX(-50%) scaleX(1); }
+
+/* PANELS */
+.panel { display: none; }
+.panel.active { display: block; animation: panelIn .4s ease both; }
+@keyframes panelIn {
+from { opacity: 0; transform: translateY(12px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+
+/* SECTION */
+.section { max-width: 700px; margin: 0 auto; padding: 52px 22px 88px; }
+
+/* HEADING */
+.sec-heading { text-align: center; margin-bottom: 48px; }
+.sec-heading h2 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(30px, 6vw, 46px);
+font-weight: 300; letter-spacing: .28em; text-transform: uppercase;
+}
+.sec-heading .caption {
+margin-top: 7px; font-size: 11px; letter-spacing: .3em;
+text-transform: uppercase; color: var(–taupe);
+font-family: ‘Cormorant Garamond’, serif;
+}
+.ornament {
+display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 18px;
+}
+.ornament-line { width: 52px; height: 1px; background: var(–sand); }
+.ornament-dot  { width: 4px; height: 4px; background: var(–accent); border-radius: 50%; }
+
+/* DISCOUNT BADGES */
+.discount-strip { display: flex; gap: 14px; margin-bottom: 36px; }
+.badge {
+flex: 1; background: var(–espresso); border-radius: 3px;
+padding: 26px 14px 18px; text-align: center;
+position: relative; overflow: hidden;
+cursor: pointer;
+transition: transform .2s, box-shadow .2s;
+}
+.badge:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(58,42,30,.22); }
+.badge:active { transform: translateY(0); }
+.badge::after {
+content: ‘’; position: absolute; bottom: -28px; left: -28px;
+width: 90px; height: 90px; border-radius: 50%;
+background: rgba(192,154,122,.12);
+}
+.badge-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 58px; font-weight: 300; line-height: 1; color: var(–parchment);
+}
+.badge-num sup { font-size: 20px; vertical-align: super; color: var(–accent); }
+.badge-desc  { margin-top: 8px; font-size: 11.5px; letter-spacing: .16em; color: var(–taupe); font-weight: 300; line-height: 1.5; }
+.badge-desc small { display: block; font-size: 10px; letter-spacing: .12em; color: var(–muted); margin-top: 3px; }
+.badge-tap {
+position: relative; z-index: 1;
+margin-top: 12px; font-size: 10px; letter-spacing: .14em;
+color: var(–accent); opacity: .8;
+}
+
+/* MODAL */
+.modal-overlay {
+display: none; position: fixed; inset: 0; z-index: 500;
+background: rgba(30,20,12,.65);
+backdrop-filter: blur(4px);
+align-items: flex-end; justify-content: center;
+}
+.modal-overlay.open { display: flex; animation: fadeOverlay .25s ease both; }
+@keyframes fadeOverlay { from{opacity:0} to{opacity:1} }
+
+.modal {
+background: var(–ivory); width: 100%; max-width: 640px;
+border-radius: 14px 14px 0 0;
+max-height: 88vh; overflow-y: auto;
+animation: slideUp .3s cubic-bezier(.32,0,.2,1) both;
+padding-bottom: 48px;
+}
+@keyframes slideUp { from{transform:translateY(100%)} to{transform:translateY(0)} }
+
+.modal-handle { display:flex; justify-content:center; padding: 14px 0 6px; }
+.modal-handle span { width:38px; height:4px; border-radius:2px; background:var(–sand); }
+
+.modal-head {
+display:flex; align-items:center; justify-content:space-between;
+padding: 12px 22px 18px;
+border-bottom: 1px solid var(–sand);
+}
+.modal-title {
+font-family:‘Cormorant Garamond’,serif;
+font-size:20px; font-weight:300; letter-spacing:.1em; color:var(–espresso);
+}
+.modal-title em { font-style:italic; color:var(–sienna); }
+.modal-pill {
+background:var(–espresso); border-radius:3px;
+padding:5px 12px;
+font-family:‘Cormorant Garamond’,serif;
+font-size:22px; font-weight:300; color:var(–parchment);
+letter-spacing:.05em;
+}
+.modal-pill sup { font-size:11px; color:var(–accent); }
+.modal-close {
+background:none; border:none; cursor:pointer;
+width:30px; height:30px; border-radius:50%;
+display:flex; align-items:center; justify-content:center;
+color:var(–muted); font-size:18px; transition:background .2s;
+}
+.modal-close:hover { background:var(–parchment); }
+
+.modal-body { padding: 0 20px; }
+.modal-table { width:100%; border-collapse:collapse; margin-top:4px; }
+.modal-table thead th {
+padding:10px 10px 12px;
+font-family:‘Cormorant Garamond’,serif;
+font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+color:var(–sienna); font-weight:400; text-align:right;
+border-bottom:1.5px solid var(–sand);
+}
+.modal-table thead th:first-child { text-align:left; }
+.modal-table tbody tr { border-bottom:1px solid rgba(181,164,148,.22); transition:background .15s; }
+.modal-table tbody tr:hover { background:rgba(217,207,194,.28); }
+.modal-table td {
+padding:13px 10px; font-size:13px; font-weight:300;
+letter-spacing:.04em; text-align:right; vertical-align:middle;
+}
+.modal-table td:first-child { text-align:left; font-size:13.5px; }
+.modal-table .mval {
+font-family:‘Cormorant Garamond’,serif;
+font-size:17px; font-weight:400; color:var(–sienna);
+}
+.modal-table .orig {
+display:block; font-size:11px; color:var(–taupe);
+text-decoration:line-through; margin-bottom:2px;
+}
+
+/* PRICE TABLE */
+.price-table { width: 100%; border-collapse: collapse; margin-bottom: 36px; }
+.price-table thead th {
+padding: 8px 10px 14px;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
+color: var(–sienna); font-weight: 400; text-align: right;
+border-bottom: 1.5px solid var(–sand);
+}
+.price-table thead th:first-child { text-align: left; }
+.price-table tbody tr {
+border-bottom: 1px solid rgba(181,164,148,.28); transition: background .18s;
+}
+.price-table tbody tr:hover { background: rgba(217,207,194,.28); }
+.price-table td {
+padding: 15px 10px; font-size: 13.5px; font-weight: 300;
+letter-spacing: .04em; color: var(–espresso);
+text-align: right; vertical-align: middle;
+}
+.price-table td:first-child { text-align: left; font-size: 14px; }
+.price-table .val { font-family: ‘Cormorant Garamond’, serif; font-size: 17px; font-weight: 400; }
+.price-table .dash { color: var(–sand); font-size: 14px; }
+
+/* TAG BOX */
+.tag-box {
+background: var(–fog); border: 1px solid var(–sand);
+border-radius: 3px; padding: 20px 22px; margin-bottom: 28px;
+}
+.tag-box-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 11px; letter-spacing: .28em; text-transform: uppercase;
+color: var(–sienna); margin-bottom: 14px;
+}
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+padding: 6px 16px; background: var(–parchment); border-radius: 30px;
+font-size: 12.5px; color: var(–espresso); font-weight: 300; letter-spacing: .05em;
+}
+
+/* ADDON */
+.addon {
+display: flex; align-items: center; gap: 14px;
+background: var(–parchment); border-radius: 3px;
+padding: 16px 20px; margin: 12px 0 28px;
+}
+.addon-icon {
+flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+background: var(–sienna); display: flex; align-items: center;
+justify-content: center; font-size: 14px; color: var(–ivory); font-weight: 300;
+}
+.addon p { font-size: 13px; font-weight: 300; line-height: 1.7; letter-spacing: .05em; }
+
+/* NOTICE */
+.notice {
+background: var(–espresso); border-radius: 3px;
+padding: 26px 28px; margin-top: 36px;
+}
+.notice-head {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 10px; letter-spacing: .35em; text-transform: uppercase;
+color: var(–taupe); margin-bottom: 14px;
+}
+.notice p { font-size: 12.5px; line-height: 2; font-weight: 300; letter-spacing: .06em; color: var(–sand); }
+.notice p + p { margin-top: 6px; }
+
+/* FOOTER */
+footer { background: var(–espresso); text-align: center; padding: 36px 20px 52px; }
+footer .ig   { font-family: ‘Cormorant Garamond’, serif; font-size: 13px; letter-spacing: .28em; color: var(–taupe); }
+footer .copy { margin-top: 8px; font-size: 10px; letter-spacing: .18em; color: var(–muted); opacity: .6; }
+
+/* SERVICE CARDS */
+.svc-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+}
+.svc-card {
+background: var(–parchment);
+border: 1px solid var(–sand);
+border-radius: 6px;
+padding: 16px 14px;
+display: flex; align-items: center; gap: 10px;
+cursor: pointer; text-align: left;
+transition: background .2s, transform .18s, box-shadow .18s;
+font-family: ‘Noto Serif TC’, serif;
+}
+.svc-card:hover {
+background: var(–sand);
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(58,42,30,.1);
+}
+.svc-card:active { transform: translateY(0); }
+.svc-card–full { grid-column: 1 / -1; }
+.svc-letter {
+flex-shrink: 0;
+width: 32px; height: 32px; border-radius: 50%;
+background: var(–espresso);
+display: flex; align-items: center; justify-content: center;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 16px; font-weight: 300; color: var(–parchment);
+letter-spacing: 0;
+}
+.svc-name {
+flex: 1;
+font-size: 13.5px; font-weight: 400; letter-spacing: .08em;
+color: var(–espresso);
+}
+.svc-arrow {
+font-size: 12px; color: var(–sienna); opacity: .7;
+}
+
+/* SERVICE DETAIL MODAL */
+.svc-overlay {
+display: none; position: fixed; inset: 0; z-index: 600;
+background: rgba(30,20,12,.65);
+backdrop-filter: blur(4px);
+align-items: flex-end; justify-content: center;
+}
+.svc-overlay.open { display: flex; animation: fadeOverlay .25s ease both; }
+.svc-modal {
+background: var(–ivory); width: 100%; max-width: 640px;
+border-radius: 14px 14px 0 0;
+max-height: 82vh; overflow-y: auto;
+animation: slideUp .3s cubic-bezier(.32,0,.2,1) both;
+padding-bottom: 48px;
+}
+.svc-modal-handle { display:flex; justify-content:center; padding:14px 0 6px; }
+.svc-modal-handle span { width:38px; height:4px; border-radius:2px; background:var(–sand); }
+.svc-modal-head {
+display:flex; align-items:center; justify-content:space-between;
+padding: 10px 22px 18px;
+border-bottom: 1px solid var(–sand);
+}
+.svc-modal-label {
+display:flex; align-items:center; gap:12px;
+}
+.svc-badge-letter {
+width:40px; height:40px; border-radius:50%;
+background: var(–espresso);
+display:flex; align-items:center; justify-content:center;
+font-family:‘Cormorant Garamond’,serif;
+font-size:20px; font-weight:300; color:var(–parchment);
+}
+.svc-modal-name {
+font-family:‘Cormorant Garamond’,serif;
+font-size:22px; font-weight:300; letter-spacing:.1em;
+color:var(–espresso);
+}
+.svc-modal-close {
+background:none; border:none; cursor:pointer;
+width:30px; height:30px; border-radius:50%;
+display:flex; align-items:center; justify-content:center;
+color:var(–muted); font-size:18px; transition:background .2s;
+}
+.svc-modal-close:hover { background:var(–parchment); }
+.svc-modal-body { padding: 24px 24px 0; }
+.svc-step {
+display:flex; align-items:flex-start; gap:14px;
+padding: 14px 0;
+border-bottom: 1px solid rgba(181,164,148,.22);
+}
+.svc-step:last-child { border-bottom: none; }
+.svc-step-num {
+flex-shrink:0;
+width:24px; height:24px; border-radius:50%;
+background: var(–parchment);
+display:flex; align-items:center; justify-content:center;
+font-family:‘Cormorant Garamond’,serif;
+font-size:12px; color:var(–sienna); font-weight:400;
+margin-top:1px;
+}
+.svc-step-text {
+font-size:14px; font-weight:300; letter-spacing:.06em;
+line-height:1.6; color:var(–espresso);
+}
+/* BOOK BUTTON */
+.book-btn {
+display: flex; flex-direction: column; align-items: center; justify-content: center;
+gap: 4px;
+margin-top: 36px;
+padding: 20px 28px;
+background: var(–espresso);
+border-radius: 4px;
+text-decoration: none;
+transition: background .2s, transform .18s, box-shadow .2s;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 22px; font-weight: 300; letter-spacing: .2em;
+color: var(–parchment);
+text-align: center;
+}
+.book-btn:hover {
+background: #4e3826;
+transform: translateY(-2px);
+box-shadow: 0 10px 32px rgba(58,42,30,.2);
+}
+.book-btn:active { transform: translateY(0); }
+.book-btn-icon { font-size: 14px; color: var(–accent); }
+.book-btn-sub {
+font-family: ‘Noto Serif TC’, serif;
+font-size: 11px; letter-spacing: .2em;
+color: var(–taupe); font-weight: 300;
+}
+
+/* POLICY LIST */
+.policy-list { display: flex; flex-direction: column; gap: 0; }
+.policy-item {
+display: flex; align-items: flex-start; gap: 18px;
+padding: 22px 0;
+border-bottom: 1px solid rgba(181,164,148,.25);
+}
+.policy-item:last-child { border-bottom: none; }
+.policy-icon {
+flex-shrink: 0;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 13px; font-weight: 300; letter-spacing: .1em;
+color: var(–taupe);
+min-width: 26px;
+padding-top: 2px;
+}
+.policy-content p {
+font-size: 14px; font-weight: 300; line-height: 1.9;
+letter-spacing: .06em; color: var(–espresso);
+}
+.policy-content strong { font-weight: 500; }
+.policy-content .hi { color: var(–sienna); font-weight: 500; }
+
+.policy-footer {
+margin-top: 32px;
+text-align: center;
+font-size: 13px; font-weight: 300; letter-spacing: .12em;
+color: var(–muted);
+font-style: italic;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 16px;
+}
+.tab-zh    { font-size: 12px; }
+.section   { padding: 38px 16px 70px; }
+.price-table td, .price-table thead th { padding: 12px 7px; }
+.badge-num { font-size: 46px; }
+.notice    { padding: 20px 18px; }
+}
+</style>
+
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-logo">Yu<em>Glow</em></div>
+  <div class="hero-sub">Beauty Studio &nbsp;·&nbsp; Price List</div>
+  <div class="hero-rule">
+    <span class="line"></span><span class="diamond"></span><span class="line"></span>
+  </div>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="go('waxing',this)">
+    <div class="tab-inner">
+      <span class="tab-en">Waxing</span>
+      <span class="tab-zh">熱蠟除毛</span>
+    </div>
+  </button>
+  <button class="tab-btn" onclick="go('studio',this)">
+    <div class="tab-inner">
+      <span class="tab-en">Care</span>
+      <span class="tab-zh">專屬療程</span>
+    </div>
+  </button>
+  <button class="tab-btn" onclick="go('booking',this)">
+    <div class="tab-inner">
+      <span class="tab-en">Booking</span>
+      <span class="tab-zh">預約須知</span>
+    </div>
+  </button>
+</nav>
+
+<!-- ══ WAXING ══ -->
+
+<div id="p-waxing" class="panel active">
+  <div class="section">
+    <div class="sec-heading">
+      <h2>Waxing</h2>
+      <div class="caption">除毛項目 · 定價一覽</div>
+      <div class="ornament">
+        <div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div>
+      </div>
+    </div>
+
+```
+<div class="discount-strip">
+  <div class="badge" onclick="openModal(70)" role="button" tabindex="0">
+    <div class="badge-num">7<sup>折</sup></div>
+    <div class="badge-desc">新客體驗價</div>
+    <div class="badge-tap">點擊查看優惠價 →</div>
+  </div>
+  <div class="badge" onclick="openModal(80)" role="button" tabindex="0">
+    <div class="badge-num">8<sup>折</sup></div>
+    <div class="badge-desc">舊客回除優惠<small>限八周內</small></div>
+    <div class="badge-tap">點擊查看優惠價 →</div>
+  </div>
+</div>
+
+<table class="price-table">
+  <thead><tr><th>項目</th><th>Girls</th><th>Boys</th></tr></thead>
+  <tbody>
+    <tr><td>傳統比基尼</td>       <td class="val">$1,400</td><td class="val">$1,800</td></tr>
+    <tr><td>巴西式全除</td>       <td class="val">$2,000</td><td class="val">$3,000</td></tr>
+    <tr><td>手指／腳趾</td>       <td class="val">$200</td>  <td class="val">$200</td></tr>
+    <tr><td>小手臂</td>           <td class="val">$800</td>  <td class="val">$1,000</td></tr>
+    <tr><td>全手臂（含手指）</td> <td class="val">$1,400</td><td class="val">$1,800</td></tr>
+    <tr><td>小腿</td>             <td class="val">$1,200</td><td class="val">$1,800</td></tr>
+    <tr><td>全腿（含腳趾）</td>   <td class="val">$2,200</td><td class="val">$3,000</td></tr>
+    <tr><td>腋下</td>             <td class="val">$600</td>  <td class="val">$600</td></tr>
+    <tr><td>鬍子</td>             <td class="val">$400</td>  <td class="val">$600</td></tr>
+    <tr><td>修眉</td>             <td class="val">$400</td>  <td class="val">$400</td></tr>
+  </tbody>
+</table>
+
+<div class="notice">
+  <div class="notice-head">優惠 &amp; 附加項目</div>
+  <p>✦ 鎮靜舒緩軟膜　加購價 $200</p>
+  <p>✦ 追蹤 IG＋打卡分享<br>
+     &emsp;可折抵現金 $50 ／ 贈送鎮靜舒緩軟膜（二擇一）</p>
+</div>
+
+<a class="book-btn" href="https://lin.ee/oEo8ORN" target="_blank" rel="noopener">
+  <span class="book-btn-icon">✦</span>
+  立即預約
+  <span class="book-btn-sub">LINE 預約諮詢</span>
+</a>
+```
+
+  </div>
+</div>
+
+<!-- ══ STUDIO ══ -->
+
+<div id="p-studio" class="panel">
+  <div class="section">
+    <div class="sec-heading">
+      <h2>Studio</h2>
+      <div class="caption">美容療程 · 定價一覽</div>
+      <div class="ornament">
+        <div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div>
+      </div>
+    </div>
+
+```
+<div class="tag-box">
+  <div class="tag-box-title">A – E 療程項目　<span style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:.1em;color:var(--taupe);text-transform:none;">點擊卡片查看內容</span></div>
+  <div class="svc-grid">
+    <button class="svc-card" onclick="openSvc('A')">
+      <span class="svc-letter">A</span>
+      <span class="svc-name">酥麻采耳</span>
+      <span class="svc-arrow">→</span>
+    </button>
+    <button class="svc-card" onclick="openSvc('B')">
+      <span class="svc-letter">B</span>
+      <span class="svc-name">療癒耳燭</span>
+      <span class="svc-arrow">→</span>
+    </button>
+    <button class="svc-card" onclick="openSvc('C')">
+      <span class="svc-letter">C</span>
+      <span class="svc-name">紓壓洗眼</span>
+      <span class="svc-arrow">→</span>
+    </button>
+    <button class="svc-card" onclick="openSvc('D')">
+      <span class="svc-letter">D</span>
+      <span class="svc-name">美顏撥筋</span>
+      <span class="svc-arrow">→</span>
+    </button>
+    <button class="svc-card svc-card--full" onclick="openSvc('E')">
+      <span class="svc-letter">E</span>
+      <span class="svc-name">顳釋重負</span>
+      <span class="svc-arrow">→</span>
+    </button>
+  </div>
+</div>
+
+<table class="price-table">
+  <thead><tr><th>A–E 任意搭配</th><th>單堂</th><th>雙堂／兩人同行</th></tr></thead>
+  <tbody>
+    <tr><td>單項　45 mins</td> <td class="val">$899</td>  <td class="dash">—</td></tr>
+    <tr><td>兩項　75 mins</td> <td class="val">$1,499</td><td class="val">$1,400</td></tr>
+    <tr><td>三項　105 mins</td><td class="val">$1,999</td><td class="val">$1,900</td></tr>
+  </tbody>
+</table>
+
+<table class="price-table">
+  <thead><tr><th>其他療程項目</th><th>單堂</th><th>雙堂／兩人同行</th></tr></thead>
+  <tbody>
+    <tr><td>F. Q 彈美胸</td>    <td class="val">$1,699</td><td class="val">$1,499</td></tr>
+    <tr><td>G. 深層抗痘保濕</td><td class="val">$1,399</td><td class="val">$1,399</td></tr>
+    <tr><td>H. 苦杏仁酸煥膚</td><td class="val">$1,599</td><td class="val">$1,500</td></tr>
+    <tr><td>I. 液態皮秒</td>    <td class="val">$2,199</td><td class="val">$2,100</td></tr>
+    <tr><td>LST 液態海藻針</td> <td class="val">$2,799</td><td class="val">$2,699</td></tr>
+    <tr><td>M. 酵母橙酸</td>    <td class="val">$1,999</td><td class="val">$1,900</td></tr>
+  </tbody>
+</table>
+
+<div class="addon">
+  <div class="addon-icon">＋</div>
+  <p>全品項皆可加價購：A～E 任選單項　$700 / 35 mins</p>
+</div>
+
+<div class="notice">
+  <div class="notice-head">預約須知</div>
+  <p>1. 第二堂免付清，可付定金 $500 即可</p>
+  <p>2. 雙堂 or 兩人同行優惠適用於所有療程項目</p>
+</div>
+
+<a class="book-btn" href="https://lin.ee/oEo8ORN" target="_blank" rel="noopener">
+  <span class="book-btn-icon">✦</span>
+  立即預約
+  <span class="book-btn-sub">LINE 預約諮詢</span>
+</a>
+```
+
+  </div>
+</div>
+
+<!-- ══ BOOKING ══ -->
+
+<div id="p-booking" class="panel">
+  <div class="section">
+    <div class="sec-heading">
+      <h2>Booking</h2>
+      <div class="caption">預約須知 · 注意事項</div>
+      <div class="ornament">
+        <div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div>
+      </div>
+    </div>
+
+```
+<div class="policy-list">
+  <div class="policy-item">
+    <div class="policy-icon">01</div>
+    <div class="policy-content">
+      <p>本店都是採<strong>預約制</strong>、排定時間服務</p>
+    </div>
+  </div>
+  <div class="policy-item">
+    <div class="policy-icon">02</div>
+    <div class="policy-content">
+      <p>突發狀況需臨時取消，請在預約時間 <strong class="hi">24小時前</strong> 告知</p>
+    </div>
+  </div>
+  <div class="policy-item">
+    <div class="policy-icon">03</div>
+    <div class="policy-content">
+      <p><strong class="hi">當天</strong>臨時取消預約、或遲到超過 15 分鐘，「下次預約時」會先收 <strong class="hi">500元定金</strong>喔～只要準時來就會全額退還。</p>
+    </div>
+  </div>
+  <div class="policy-item">
+    <div class="policy-icon">04</div>
+    <div class="policy-content">
+      <p>若遲到 <strong class="hi">超過30分鐘</strong>，可能會影響後續客人安排，因此有可能會取消當次預約！</p>
+    </div>
+  </div>
+</div>
+
+<div class="policy-footer">
+  還請多多見諒～感謝你的理解與配合！
+</div>
+
+<a class="book-btn" href="https://lin.ee/oEo8ORN" target="_blank" rel="noopener">
+  <span class="book-btn-icon">✦</span>
+  立即預約
+  <span class="book-btn-sub">LINE 預約諮詢</span>
+</a>
+```
+
+  </div>
+</div>
+
+<footer>
+  <div class="ig">@yuglow_studio &nbsp;·&nbsp; @YuGlow_waxing</div>
+  <div class="copy">YuGlow Beauty Studio · All rights reserved</div>
+</footer>
+
+<!-- ░░ SERVICE DETAIL MODAL ░░ -->
+
+<div class="svc-overlay" id="svc-overlay" onclick="closeSvc(event)">
+  <div class="svc-modal">
+    <div class="svc-modal-handle"><span></span></div>
+    <div class="svc-modal-head">
+      <div class="svc-modal-label">
+        <div class="svc-badge-letter" id="svc-letter"></div>
+        <div class="svc-modal-name" id="svc-name"></div>
+      </div>
+      <button class="svc-modal-close" onclick="closeSvc(null)">✕</button>
+    </div>
+    <div class="svc-modal-body" id="svc-body"></div>
+  </div>
+</div>
+
+<script>
+const svcData = {
+  A: {
+    name: '酥麻采耳',
+    steps: ['溫洗外耳','清潔內耳','專業耳具舒緩','耳穴淋巴按摩','頭部疏鬆按摩']
+  },
+  B: {
+    name: '療癒耳燭',
+    steps: ['眼部熱敷','耳道排濕','肩頸撥筋','上背按摩','頭部疏鬆按摩']
+  },
+  C: {
+    name: '紓壓洗眼',
+    steps: ['銀珠棒按摩淚腺','降眼壓濕敷','眼周面額撥筋']
+  },
+  D: {
+    name: '美顏撥筋',
+    steps: ['溫和洗卸','玉石撥筋鬆氣結','V臉電泳儀緊緻拉提','全臉紓壓按摩','超聲波導入保濕']
+  },
+  E: {
+    name: '顳釋重負',
+    steps: ['降眼壓濕敷','頭皮舒緩噴霧','按摩梳開穴','台灣專利排痠棒','頭部撥筋棒','手技深層頭部按摩']
+  }
+};
+
+function openSvc(key) {
+  const d = svcData[key];
+  document.getElementById('svc-letter').textContent = key;
+  document.getElementById('svc-name').textContent = d.name;
+  document.getElementById('svc-body').innerHTML = d.steps.map((s,i) =>
+    `<div class="svc-step">
+      <div class="svc-step-num">${i+1}</div>
+      <div class="svc-step-text">${s}</div>
+    </div>`
+  ).join('');
+  document.getElementById('svc-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSvc(e) {
+  if (e && e.target !== document.getElementById('svc-overlay')) return;
+  document.getElementById('svc-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-handle"><span></span></div>
+    <div class="modal-head">
+      <div class="modal-title" id="modal-title"></div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="modal-pill" id="modal-pill"></div>
+        <button class="modal-close" onclick="closeModal(null)">✕</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <table class="modal-table">
+        <thead>
+          <tr><th>項目</th><th>Girls</th><th>Boys</th></tr>
+        </thead>
+        <tbody id="modal-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+const items = [
+  { name:'傳統比基尼',     g:1400, b:1800 },
+  { name:'巴西式全除',     g:2000, b:3000 },
+  { name:'手指／腳趾',     g:200,  b:200  },
+  { name:'小手臂',         g:800,  b:1000 },
+  { name:'全手臂（含手指）', g:1400, b:1800 },
+  { name:'小腿',           g:1200, b:1800 },
+  { name:'全腿（含腳趾）', g:2200, b:3000 },
+  { name:'腋下',           g:600,  b:600  },
+  { name:'鬍子',           g:400,  b:600  },
+  { name:'修眉',           g:400,  b:400  },
+];
+
+function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
+
+function openModal(pct) {
+  const rate = pct / 100;
+  const label = pct === 70 ? '新客體驗價' : '舊客回除優惠';
+  document.getElementById('modal-title').innerHTML = `<em>${label}</em>`;
+  document.getElementById('modal-pill').innerHTML = `${pct}<sup>折</sup>`;
+
+  const tbody = document.getElementById('modal-tbody');
+  tbody.innerHTML = items.map(it => {
+    const gd = it.g * rate, bd = it.b * rate;
+    return `<tr>
+      <td>${it.name}</td>
+      <td><span class="orig">${fmt(it.g)}</span><span class="mval">${fmt(gd)}</span></td>
+      <td><span class="orig">${fmt(it.b)}</span><span class="mval">${fmt(bd)}</span></td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modal-overlay')) return;
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function go(name, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('p-' + name).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
